@@ -1,0 +1,51 @@
+<div>
+    <div>
+        <form [formGroup]="blog" autocomplete="off" (submit)="onSubmit()">
+            <div class="header">
+                <h4>Add Blog</h4>
+            </div>
+            <div>
+                <label for="blogname">Blog name</label><br>
+                <input style="border-radius: 10px;" type="text" class="form-control" formControlName="blogname" />
+                <div class="validationMsg">
+                    <small class="text-danger" *ngIf="blog.get('blogname')?.touched && blog.get('blogname')?.errors?.required">
+                        Blog name is mandatory
+                    </small>
+                    <small class="text-danger" *ngIf="blog.get('blogname')?.touched && blog.get('blogname')?.errors?.minlength">
+                        Maximum 20 characters required
+                    </small>
+                </div>
+            </div>
+            <div style="margin-top: 5px;">
+                <label for="category">Category</label><br>
+                <input style="border-radius: 10px;" type="text" class="form-control" formControlName="category" />
+                <div class="validationMsg">
+                    <small class="text-danger" *ngIf="blog.get('category')?.touched && blog.get('category')?.errors?.required">
+                        Category is mandatory
+                    </small>
+                    <small class="text-danger" *ngIf="blog.get('category')?.touched && blog.get('category')?.errors?.minlength">
+                        Maximum 20 characters required
+                    </small>
+                </div>
+            </div>
+            <div style="margin-top: 5px;">
+                <label for="article">Article</label><br>
+                <textarea style="border-radius: 10px;" class="form-control" formControlName="article"></textarea>
+                <div class="validationMsg">
+                    <small class="text-danger" *ngIf="blog.get('article')?.touched && blog.get('article')?.errors?.required">
+                        Article is mandatory
+                    </small>
+                    <small class="text-danger" *ngIf="blog.get('article')?.touched && blog.get('article')?.errors?.maxlength">
+                        Maximum 1000 characters allowed
+                    </small>
+                </div>
+            </div>
+
+            <div style="margin-top: 10px;">
+                <button class="btn btn-outline-primary" type="submit" id="add-employee-form" [disabled]="!blog.valid">
+                    Save blog
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

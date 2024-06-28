@@ -1,0 +1,33 @@
+<div style="position: fixed;width: 100%;background-color:azure;top: 10%">
+    <div class="tab">
+        <button class="tablinks" (click)="openTab('all-blogs')" 
+        [ngClass]="activetab=='all-blogs'?'active-tab':''">All
+            Blogs</button>
+        <button class="tablinks" (click)="openTab('my-blogs')" 
+        [ngClass]="activetab=='my-blogs'?'active-tab':''">My
+            Blogs</button>
+        <button class="tablinks" type="button" (click)="openTab('add-blogs')" 
+        [ngClass]="activetab=='add-blogs'?'active-tab':''">Add Blog</button>
+        <button class="tablinks" type="button"(click)="toggleSearch()">Search Blogs</button>
+    </div>
+    <hr style="margin-top: 3%;">
+    <div class="Search"  *ngIf="(activetab =='all-blogs'||'my-blogs') && showSearch" style="margin-bottom: 1%;">
+        <div *ngIf="allBlogs?.length" style="display: flex;padding-inline: 2%;margin-top: 2%;margin-left: 10%;">
+            <input type="search" style="width: 20%;" class="form-control" placeholder="Search" name="search"
+                [(ngModel)]="search" />
+            <input type="date" class="form-control date-search" name="fromDate" [(ngModel)]="fromDate" />
+            <input type="date" class="form-control date-search" name="toDate" [(ngModel)]="toDate" />
+            <button type="button" style="margin-left: 2%" class="btn btn-primary" (click)="searchBlogs()">Search
+            </button>
+        </div>
+    </div>
+</div>
+<div style="margin-top: 15%; background-color:azure">
+    <div [ngSwitch]="activetab">
+        <div *ngSwitchCase="'all-blogs'"><view-blogs [blogs]="allBlogs" (selectedTab)="refreshData()"></view-blogs>
+        </div>
+        <div *ngSwitchCase="'my-blogs'"><view-my-blogs></view-my-blogs></div>
+        <div *ngSwitchCase="'add-blogs'"><app-addblog></app-addblog></div>
+    </div>
+
+</div>

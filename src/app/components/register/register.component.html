@@ -1,0 +1,93 @@
+<div class="main">
+  <nav class="navbar">
+    <div class="navbar-left">
+      <span class="navbar-brand"><h2>Blog-Site-Website</h2></span>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="middle text-center">
+      <div id="login" class="my-2">
+        <div>
+          <h1 style="
+                margin-bottom: 5%;
+                
+              ">
+            Create Account
+          </h1>
+        </div>
+        <form class="form-signin" [formGroup]="UserRegister" autocomplete="off" (submit)="onSubmit()">
+          <fieldset class="clearfix">
+            <div class="row">
+              <div class="col-md-10">
+                <input type="text" class="form-control"
+                  formControlName="username" Placeholder="User name" />
+                <div class="validationMsg">
+                  <small class="text-danger" *ngIf="
+                        UserRegister.get('username')?.touched &&
+                        UserRegister.get('username')?.errors?.required
+                      ">
+                    User Name is mandatory</small>
+                  <small class="text-danger" *ngIf="
+                        UserRegister.get('username')?.touched &&
+                        UserRegister.get('username')?.errors?.pattern
+                      ">First Name cannot have special characters or digits</small>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10">
+                <input type="text" class="form-control"
+                  formControlName="email" Placeholder="Email" />
+                <div class="validationMsg">
+                  <small class="text-danger" *ngIf="
+                        UserRegister.get('email')?.touched &&
+                        UserRegister.get('email')?.errors?.required
+                      ">
+                    emailId is mandatory</small>
+                  <small class="text-danger" *ngIf="
+                        UserRegister.get('email')?.touched &&
+                        UserRegister.get('email')?.errors?.pattern
+                      ">Invalid emailId Address</small>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10">
+                <input  type="password" class="form-control"
+                  formControlName="password" Placeholder="Password" />
+                <div class="validationMsg">
+                  <small class="text-danger" *ngIf="
+                        UserRegister.get('password')?.touched &&
+                        UserRegister.get('password')?.errors?.required
+                      ">
+                    Password is mandatory</small>
+                  <small class="text-danger" *ngIf="
+                        UserRegister.get('password')?.touched &&
+                        UserRegister.get('password')?.errors?.minlength
+                      ">Minimun 6 characters required</small>
+                </div>
+              </div>
+            </div>
+            <div style="color: red; font-size: 14px; text-align: center">
+              {{ message }}
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <button class="btn btn-md my-2" style="border-radius: 10px;" [disabled]="!UserRegister.valid">
+                  Register
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 my-2" style="padding-left: 10%">
+                <p>
+                  Existing user ? <a routerLink="/login">Login</a>
+                </p>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

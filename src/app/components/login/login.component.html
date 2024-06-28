@@ -1,0 +1,87 @@
+<div class="main">
+  <nav class="navbar">
+    <div class="navbar-left">
+      <span class="navbar-brand"><h2>Blog-Site-Website</h2></span>
+    </div>
+  </nav>
+  <div class="container">
+    <div *ngIf="message" style="color: red;font-size: medium;margin-left: 35%;">
+      {{message}}</div>
+    <div class="middle text-center">
+
+      <div id="login">
+        <div>
+          <h1 style="
+                margin-bottom: 5%;
+              ">
+            Sign In
+          </h1>
+        </div>
+        <form [formGroup]="UserLogin" autocomplete="off" (submit)="OnSubmit()">
+          <fieldset class="clearfix">
+            <div class="row">
+              <div class="col-md-10">
+                <input style="border-radius: 10px; width: 120%" type="text" class="form-control"
+                  formControlName="username" placeholder="user name" />
+                <div class="validationMsg">
+                  <small class="text-danger" *ngIf="
+                        UserLogin.get('username')?.touched &&
+                        UserLogin.get('username')?.errors?.required
+                      ">
+                    User Name is Mandatory
+                  </small>
+                  <small class="text-danger" *ngIf="
+                        UserLogin.get('username')?.touched &&
+                        UserLogin.get('username')?.errors?.pattern
+                      ">Invalid user name</small>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10">
+                <input style="border-radius: 10px; width: 120%; margin-top: 5px" type="password" class="form-control"
+                  formControlName="password" placeholder="password" />
+                <div class="validationMsg">
+                  <small class="text-danger" *ngIf="
+                        UserLogin.get('password')?.touched &&
+                        UserLogin.get('password')?.errors?.required
+                      ">
+                    Password is Mandatory
+                  </small>
+                  <small class="text-danger" *ngIf="
+                        UserLogin.get('password')?.touched &&
+                        UserLogin.get('password')?.errors?.minlength
+                      ">Minimun 6 characters required
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div style="color: red; font-size: 14px; text-align: center">
+              {{ invalid }}
+            </div>
+            <div class="row">
+              <div>
+                <button class="btn btn-md my-2" style="border-radius: 10px;" [disabled]="!UserLogin.valid">
+                  Sign In
+                </button>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div style="margin-bottom: 10%">
+                <a routerLink="/forgot-password" style="font-size: 15px">Forgot Password?</a>
+              </div>
+            </div> -->
+            <div class="row">
+              <div style="margin-bottom: 10%">
+                <p>
+                  Don`t have account?
+                  <a routerLink="/register" style="font-size: 15px;color: blue;">Sign Up</a>
+                </p>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

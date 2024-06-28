@@ -1,0 +1,16 @@
+.fab {
+    color: rgba(29, 161, 242, 1);
+}
+
+.pointer {
+    cursor: pointer;
+}
+.navbar{
+    background-color: #e3f2fd;
+}
+.btn{
+    background-color:rgb(156, 156, 238);
+}
+.navbar-brand {
+    font-size: 24px;
+  }

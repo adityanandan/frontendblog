@@ -1,0 +1,101 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #06a0fa;
+}
+
+.container {
+  background-color: #70edfd;
+  border-radius: 10px;
+  border: solid;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  padding: 30px;
+}
+
+.middle {
+  text-align: center;
+}
+
+#login {
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #333333;
+  font-size: 24px;
+}
+
+input.form-control {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.validationMsg {
+  margin-top: 5px;
+}
+
+.text-danger {
+  font-size: 14px;
+  color: #dc3545; /* Red color for error messages */
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue color for the button */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker shade of blue on hover */
+}
+
+a {
+  color: #007bff; /* Blue color for links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
+  
+  input.form-control {
+    width: calc(100% - 24px); /* Adjust for padding */
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  color: #ffffff; /* White text color */
+}

@@ -1,0 +1,21 @@
+<div style="padding-inline: 2%;margin-block-start: 20px;">
+    <ng-container *ngIf="blogs?.length;else noBlogs">
+        <div *ngFor="let blog of blogs">
+            <div class="blog-post">
+                <h2 class="blog-title">{{blog.blogname}}</h2>
+                <div class="blog-meta">
+                    <span class="blog-date">{{blog.timestamp |date: 'short'}}</span>
+                    <span class="blog-author">by {{blog.authorname}}</span>
+                </div>
+                <div class="blog-content">
+                    <p>{{blog.article}}</p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #noBlogs>
+        <div>
+            <p>No blogs available</p>
+        </div>
+    </ng-template>
+</div>

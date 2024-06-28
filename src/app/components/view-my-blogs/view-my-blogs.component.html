@@ -1,0 +1,33 @@
+<div style="padding-inline: 2%;margin-block-start: 2%;">
+    <ng-container *ngIf="myBlogs?.length;else noBlogs">
+        <div *ngFor="let blog of myBlogs">
+            <div>
+                <div class="blog-post">
+                    <h2 class="blog-title">{{blog.blogname}}</h2>
+                    <div class="blog-meta">
+                        <span class="blog-date">{{blog.timestamp |date: 'short'}}</span>
+                        <span class="blog-author">by {{blog.authorname}}</span>
+                    </div>
+                    <div class="blog-content">
+                        <p>{{blog.article}}</p>
+                    </div>
+                    <span>
+                        <button class="btn btn-text btn-sm" style="color: blue;" 
+                        (click)="confirmDelete()">delete this blog</button>
+                    </span>
+                </div>
+            </div>
+            <div class="confirmation-dialog" *ngIf="showConfirmation">
+                <p>Are you sure you want to delete this blog?</p>
+                <button class="btn btn-sm btn-primary" (click)="deleteBlog(blog.blogname)">Yes</button>
+                <button class="btn btn-sm btn-secondary" (click)="cancelDelete()">No</button>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #noBlogs>
+        <div>
+            <p>No blogs available</p>
+        </div>
+    </ng-template>
+    
+</div>
