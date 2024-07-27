@@ -9,7 +9,7 @@ import { BlogSiteServiceService } from 'src/app/services/blog-site-service.servi
 })
 export class NavBarComponent implements OnInit {
 
-  constructor(private blogSiteService: BlogSiteServiceService, private router: Router) { }
+  constructor(public blogSiteService: BlogSiteServiceService, private router: Router) { }
 
   ngOnInit() {
   }
